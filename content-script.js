@@ -1,4 +1,10 @@
 chrome.storage.local.get(["favorites"], function(items) {
+  if(typeof items.favorites === 'undefined') {
+    items = {
+      favorites: []
+    };
+  }
+  
   /**
    * Parent
    */

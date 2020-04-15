@@ -15,6 +15,11 @@ chrome.storage.local.get(["favorites"], function(items) {
   name = name.split('/');
   name = name[0] + '/' + name[1];
   
+  if(typeof items.favorites === 'undefined') {
+    items = {
+      favorites: []
+    };
+  }
 
   /**
    * Add/delete repo from array
