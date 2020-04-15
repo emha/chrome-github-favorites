@@ -12,6 +12,9 @@ chrome.storage.local.get(["favorites"], function(items) {
   var url = window.location.href;
   var name = url.split('github.com')[1];
   name = name.replace(/^\/+/g, '');
+  name = name.split('/');
+  name = name[0] + '/' + name[1];
+  
 
   /**
    * Add/delete repo from array
