@@ -5,7 +5,6 @@
   "homepage_url": "https://github.com/emha/chrome-github-favorites",
   "version": "1.0",
   "permissions": [
-    "activeTab",
     "storage"
   ],
   "content_scripts": [
