@@ -1,0 +1,22 @@
+{
+  "name": "GitHub favorites",
+  "description": "Create your own list of favorite repositories",
+  "author": "Malte Heyenga",
+  "homepage_url": "https://github.com/emha/chrome-github-favorites",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.github.com/"],
+      "js": ["content-script.js"]
+    },
+    {
+      "matches": ["https://*.github.com/*/*"],
+      "js": ["repo-head.js"]
+    }
+  ],
+  "manifest_version": 2
+}
