@@ -1,7 +1,8 @@
 let defaultButtonClasslist = 'btn btn-sm btn-danger';
 let activeButtonClasslist = 'btn btn-sm btn-primary';
 
-let defaultButtonText = 'Favorites';
+let defaultButtonText = 'Add to favorites';
+let removeButtonText = 'Remove from favorites';
 
 /**
  * Load storage
@@ -41,6 +42,8 @@ chrome.storage.local.get(["favorites"], function(items) {
   if(repoFound < 0) {
     button.classList = activeButtonClasslist;
     button.innerText = defaultButtonText;
+  } else {
+    button.innerText = removeButtonText;
   }
 
   /**
@@ -51,6 +54,7 @@ chrome.storage.local.get(["favorites"], function(items) {
       items.favorites.splice(repoFound, 1);
 
       button.classList = activeButtonClasslist;
+      button.innerText = defaultButtonText;
       repoFound = -1;
     } else {
       items.favorites.push({
@@ -59,6 +63,7 @@ chrome.storage.local.get(["favorites"], function(items) {
       });
 
       button.classList = defaultButtonClasslist;
+      button.innerText = removeButtonText;
       repoFound = (items.favorites.length - 1);
     }
 

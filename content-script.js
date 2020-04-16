@@ -40,7 +40,17 @@ chrome.storage.local.get(["favorites"], function(items) {
     listChildDiv.appendChild(listChildLink);
     listChild.appendChild(listChildDiv);
     listWrap.appendChild(listChild);
-  })
+  });
+
+  /**
+   * Display message for empty list
+   */
+  if(items.favorites.length <= 0) {
+    var listChild = document.createElement('li');
+    listChild.innerText = 'You haven\'t added any repositories yet. Go to a repository and click on "Add to favorites".'
+
+    listWrap.appendChild(listChild);
+  }
 
   /**
    * Apply to list
