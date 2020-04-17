@@ -3,18 +3,24 @@
   "description": "Create your own list of favorite repositories",
   "author": "Malte Heyenga",
   "homepage_url": "https://github.com/emha/chrome-github-favorites",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "permissions": [
     "storage"
   ],
   "content_scripts": [
     {
       "matches": ["https://*.github.com/"],
-      "js": ["./js/favorites-list.js"]
+      "js": [
+        "./js/helpers.js",
+        "./js/favorites-list.js"
+      ]
     },
     {
       "matches": ["https://*.github.com/*/*"],
-      "js": ["./js/repo-head.js"]
+      "js": [
+        "./js/helpers.js",
+        "./js/repo-head.js"
+      ]
     }
   ],
   "manifest_version": 2,

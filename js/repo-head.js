@@ -1,5 +1,6 @@
-let defaultButtonClasslist = 'btn btn-sm btn-danger';
-let activeButtonClasslist = 'btn btn-sm btn-primary';
+let defaultButtonClass = 'btn btn-sm';
+let defaultButtonClasslist = `${defaultButtonClass} btn-danger`;
+let activeButtonClasslist = `${defaultButtonClass} btn-primary`;
 
 let defaultButtonText = 'Add to favorites';
 let removeButtonText = 'Remove from favorites';
@@ -32,9 +33,7 @@ chrome.storage.local.get(["favorites"], function(items) {
     }
   });
 
-  var button = document.createElement('button');
-  button.classList = defaultButtonClasslist;
-  button.innerText = defaultButtonText;
+  var button = createElementFromHTML(`<button class="${defaultButtonClasslist}">${defaultButtonText}</button>`);
 
   /**
    * Change button style
