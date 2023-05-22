@@ -1,11 +1,11 @@
 /**
  * Create element from HTML
- * 
- * @param {*} htmlString 
+ *
+ * @param {string} htmlString
  */
 const createElementFromHTML = (htmlString) => {
-  var div = document.createElement('div');
+  var div = document.createElement("div");
   div.innerHTML = htmlString.trim();
 
-  return div.firstChild; 
-}
+  return div.firstChild;
+};
