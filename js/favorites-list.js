@@ -90,11 +90,12 @@ chrome.storage.local.get(["favorites", "settings"], (items) => {
    */
   if (items?.settings && items?.settings?.dashboard) {
     var dashboardNode = content.cloneNode(true);
-    var dashboardNameNode =
-      dashboardNode.getElementsByClassName("repo-name")[0];
+    var dashboardNameNode = dashboardNode.getElementsByClassName("repo-name");
 
-    if (dashboardNameNode) {
-      dashboardNameNode.style.maxWidth = "none";
+    if (dashboardNameNode && dashboardNameNode.length > 0) {
+      [...dashboardNameNode].forEach((element) => {
+        element.style.maxWidth = "none";
+      });
     }
 
     dashboard.prepend(dashboardNode);
